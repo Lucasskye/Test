@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -7,21 +7,20 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: green;
+      background: url('https://i.ibb.co/6b4K6yL/christmas-bg.jpg') no-repeat center center;
       background-size: cover;
-      background-position: center;
       font-family: "Poppins", sans-serif;
       user-select: none;
     }
 
     .envelope-container {
       position: relative;
-      width: 420px;
-      height: 320px;
+      width: 500px;
+      height: 380px;
       cursor: pointer;
     }
 
@@ -35,7 +34,8 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease;
+      z-index: 1;
     }
 
     .envelope.opened {
@@ -52,7 +52,8 @@
       background: #b71f1f;
       clip-path: polygon(0 0, 100% 0, 50% 50%);
       transform-origin: top;
-      transition: transform 0.45s ease;
+      transition: transform 0.5s ease;
+      z-index: 2;
     }
 
     .flap.opened {
@@ -77,7 +78,7 @@
       color: #d62c2c;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: opacity 0.4s ease;
-      z-index: 10;
+      z-index: 3;
     }
 
     .seal.hidden {
@@ -88,25 +89,34 @@
     /* Isi surat */
     .letter {
       position: absolute;
-      width: 100%;
+      width: 90%;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(1);
-      background: white;
+      background: rgba(255,255,255,0.95);
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
       opacity: 0;
-      transition: all 0.5s ease;
-      max-height: none;
-      overflow: visible;
+      transition: all 0.6s ease;
       text-align: center;
+      z-index: 0;
     }
 
     .letter.show {
       opacity: 1;
-      max-height: 500px;
       transform: translate(-50%, -10%) scale(1);
+    }
+
+    .letter h2 {
+      margin-top: 0;
+      color: #d62c2c;
+    }
+
+    .letter p {
+      line-height: 1.6;
+      font-size: 16px;
+      color: #333;
     }
 
   </style>
@@ -120,7 +130,7 @@
   
   <div class="letter" id="letter">
     <h2>Merry Christmas My Love</h2>
-    <p style="line-height: 1.6; font-size: 16px;">
+    <p>
       Merry Christmas, Fio.<br><br>
       This is the first time I've celebrated Christmas with someone who loves me the way you do.<br>
       I hope you are always healthy, and I hope you stay far away from problems.<br><br>
@@ -144,9 +154,11 @@
       seal.classList.add("hidden");
       flap.classList.add("opened");
       envelope.classList.add("opened");
+
       setTimeout(() => {
-        letter.classList.add("show");("show");
-      }, 350);
+        letter.classList.add("show");
+      }, 400);
+
       opened = true;
     }
   });
@@ -154,4 +166,3 @@
 
 </body>
 </html>
-
