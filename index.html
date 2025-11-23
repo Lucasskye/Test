@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -10,15 +11,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #f5f2e9;
+      background: url('https://i.ibb.co/8P0YcZq/christmas-wallpaper.jpg');
+      background-size: cover;
+      background-position: center;
       font-family: "Poppins", sans-serif;
       user-select: none;
     }
 
     .envelope-container {
       position: relative;
-      width: 350px;
-      height: 250px;
+      width: 420px;
+      height: 320px;
       cursor: pointer;
     }
 
@@ -26,7 +29,8 @@
     .envelope {
       width: 100%;
       height: 100%;
-      background: #d62c2c;
+      background: #d62c2c url('https://i.ibb.co/0Vq0t0y/christmas-ornaments.png');
+      background-size: 120px;
       position: relative;
       border-radius: 10px;
       overflow: hidden;
@@ -84,18 +88,18 @@
     /* Isi surat */
     .letter {
       position: absolute;
-      width: 90%;
+      width: 100%;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
+      transform: translate(-50%, -50%) scale(1);
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 40px;
+      border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
       opacity: 0;
       transition: all 0.5s ease;
-      max-height: 0;
-      overflow: hidden;
+      max-height: none;
+      overflow: visible;
       text-align: center;
     }
 
@@ -115,11 +119,14 @@
   <div class="seal" id="seal">🎄</div>
   
   <div class="letter" id="letter">
-    <h2>Merry Christmas my love </h2>
-    <p>(Merry Christmas Fio,
-This is the first time I've celebrated Christmas with someone
-      who loves me like this. I hope you're always healthy and 
-I hope you stay away from problems. From Lucas, I love you.)</p>
+    <h2>Merry Christmas My Love</h2>
+    <p style="line-height: 1.6; font-size: 16px;">
+      Merry Christmas, Fio.<br><br>
+      This is the first time I've celebrated Christmas with someone who loves me the way you do.<br>
+      I hope you are always healthy, and I hope you stay far away from problems.<br><br>
+      From Lucas,<br>
+      <span style="color: red; font-weight: bold;">I love you.</span>
+    </p>
   </div>
 </div>
 
@@ -137,8 +144,8 @@ I hope you stay away from problems. From Lucas, I love you.)</p>
       seal.classList.add("hidden");
       flap.classList.add("opened");
       envelope.classList.add("opened");
-      setTimeout(() => {This is the first time I've celebrated Christmas with someone who loves me like this. I hope you're always healthy and I hope you stay away from problems. From Lucas, I love you.
-        letter.classList.add("show");
+      setTimeout(() => {
+        letter.classList.add("show");("show");
       }, 350);
       opened = true;
     }
@@ -147,3 +154,4 @@ I hope you stay away from problems. From Lucas, I love you.)</p>
 
 </body>
 </html>
+
