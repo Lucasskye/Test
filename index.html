@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surat Natal</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f2e9;
+      font-family: "Poppins", sans-serif;
+      user-select: none;
+    }
+
+    .envelope-container {
+      position: relative;
+      width: 350px;
+      height: 250px;
+      cursor: pointer;
+    }
+
+    /* Amplop */
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background: #d62c2c;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .envelope.opened {
+      transform: translateY(-40px);
+    }
+
+    /* Tutup amplop */
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #b71f1f;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+      transform-origin: top;
+      transition: transform 0.45s ease;
+    }
+
+    .flap.opened {
+      transform: rotateX(180deg);
+    }
+
+    /* Logo kecil natal */
+    .seal {
+      position: absolute;
+      top: 95px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: white;
+      background-size: cover;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      color: #d62c2c;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.4s ease;
+      z-index: 10;
+    }
+
+    .seal.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Isi surat */
+    .letter {
+      position: absolute;
+      width: 90%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transition: all 0.5s ease;
+      max-height: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .letter.show {
+      opacity: 1;
+      max-height: 500px;
+      transform: translate(-50%, -10%) scale(1);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="envelope-container" id="openButton">
+  <div class="envelope" id="envelope"></div>
+  <div class="flap" id="flap"></div>
+  <div class="seal" id="seal">🎄</div>
+  
+  <div class="letter" id="letter">
+    <h2>Selamat Natal </h2>
+    <p>(Isi surat bisa kamu edit sendiri di bagian ini)</p>
+  </div>
+</div>
+
+<script>
+  const flap = document.getElementById("flap");
+  const envelope = document.getElementById("envelope");
+  const seal = document.getElementById("seal");
+  const letter = document.getElementById("letter");
+  const open = document.getElementById("openButton");
+
+  let opened = false;
+
+  open.addEventListener("click", () => {
+    if (!opened) {
+      seal.classList.add("hidden");
+      flap.classList.add("opened");
+      envelope.classList.add("opened");
+      setTimeout(() => {
+        letter.classList.add("show");
+      }, 350);
+      opened = true;
+    }
+  });
+</script>
+
+</body>
+</html>
